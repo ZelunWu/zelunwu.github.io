@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Data Interpolation 数据插值 - Zelun&#39;s Notebook</title>
+<meta name="description" content="A son and a student.">
+<meta name="generator" content="Hugo 0.72.0" />
+<link href="https://zelunwu.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/">
+<link rel="stylesheet" href="https://zelunwu.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://zelunwu.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://zelunwu.github.io/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Data Interpolation 数据插值" />
+<meta property="og:description" content="1. Introduction Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/" />
+<meta property="og:image" content="https://zelunwu.github.io/images/og-image.png"/>
+<meta property="article:published_time" content="2017-10-17T15:26:15+00:00" />
+<meta property="article:modified_time" content="2017-10-17T15:26:15+00:00" /><meta property="og:site_name" content="Homepage" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+<meta name="twitter:title" content="Data Interpolation 数据插值"/>
+<meta name="twitter:description" content="1. Introduction Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or"/>
+<meta itemprop="name" content="Data Interpolation 数据插值">
+<meta itemprop="description" content="1. Introduction Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or">
+<meta itemprop="datePublished" content="2017-10-17T15:26:15&#43;00:00" />
+<meta itemprop="dateModified" content="2017-10-17T15:26:15&#43;00:00" />
+<meta itemprop="wordCount" content="199">
+<meta itemprop="image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Zelun&#39;s Notebook</h1>
+<a href="https://github.com/zelunwu" class="github"><i class="fab fa-github"></i></a>
+<p class="description">A son and a student.</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://www.yuque.com/zelunwu">语雀</a></li>
+<li><a href="/about/">About</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Data Interpolation 数据插值</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or to be gridded. Therefore, we need to calculate the estimated p(x’) in the gridded location x’ based on the measured p(x), those steps call <strong>Interpolation</strong>.</p>
+<h2 id="2-cases">2. Cases</h2>
+<h3 id="21-3d-sshaltimeter-data-interpolation">2.1 3D SSH/Altimeter data interpolation.</h3>
+<p>What we have: mesured level 3 track altimeter SSH data, recorded as {SSH(lon, lat, time)}. Those data are scatter data.</p>
+<h4 id="steps">Steps</h4>
+<ol>
+<li>
+<p>Weighting data $SSH(lon_i,lat_j, t_1) $to $SSH(lon_i, lat_j, t_0)$
+$$
+W_{k}=\frac{2-\frac{\Delta t^{2}}{T^{2}}}{2+\frac{\Delta t^{2}}{T^{2}}}
+$$
+this equation is from Zhang et al.(2006), where $\Delta t = t_1-t_0$</p>
+</li>
+<li>
+<p>interpolating those data with the 2D interpolating methods at time $t_0$. For example, Kriging interpolation, optimal interpolation or barnes interpolation.</p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>Zhang, H., Bates, J. J., &amp; Reynolds, R. W. (2006). Assessment of composite global sampling: Sea surface wind speed. Geophysical Research Letters, 33, L17714. <a href="https://doi.org/10.1029/2006GL027086">https://doi.org/10.1029/2006GL027086</a></li>
+</ul>
+<div class="edit-meta">
+Last updated on 17 Oct 2017
+
+
+<br>
+Published on 17 Oct 2017
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Data%20Analysis/2020-06-22-da_interpolation/index.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://zelunwu.github.io/data-analysis/" title="Data Analysis"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Data Analysis</a>
+
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://zelunwu.github.io">Home</a></li>
+
+<li class="parent"><a href="https://zelunwu.github.io/data-analysis/">Data Analysis</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/">Data Interpolation 数据插值</a></li>
+</ul>
+  
+</li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

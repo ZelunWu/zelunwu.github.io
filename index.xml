@@ -6,10 +6,19 @@
     <description>Recent content in Home title on Zelun&#39;s Notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2020 18:49:06 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 15:26:15 +0000</lastBuildDate>
     
 	<atom:link href="https://zelunwu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Interpolation 数据插值</title>
+      <link>https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/</link>
+      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/</guid>
+      <description>1. Introduction Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or</description>
+    </item>
     
     <item>
       <title>Build-in Shortcodes</title>
@@ -19,15 +28,6 @@
       <guid>https://zelunwu.github.io/sample/build-in-shortcodes/</guid>
       <description>See https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes
 figure   2 People Sitting With View of Yellow Flowers during Daytime   gist  highlight &amp;lt;section id=&amp;#34;main&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h1 id=&amp;#34;title&amp;#34;&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt; {{ range .Data.Pages }} {{ .Render &amp;#34;summary&amp;#34;}} {{ end }} &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; instagram    View this post on Instagram        #Talitha #Getty #yacht in #fjærland #fjærlandsfjorden #sognefjorden #mundal #norway #landscape #panorama #travel #instagoodmyphoto #justgoshoot #peoplescreatives #visualsoflife #photography #photoshoot #photodaily #photogram #instagood #picoftheday #fjærland #photooftheday #pentax #nrksf #sognavis</description>
-    </item>
-    
-    <item>
-      <title>Chapter 2-3 (weight: 10)</title>
-      <link>https://zelunwu.github.io/statistics/3/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/statistics/3/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
     <item>
@@ -83,33 +83,6 @@ aaa</description>
     </item>
     
     <item>
-      <title>Chapter 2-4 (weight: 20)</title>
-      <link>https://zelunwu.github.io/statistics/4/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/statistics/4/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Chapter 2-2 (weight: 30)</title>
-      <link>https://zelunwu.github.io/statistics/2/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/statistics/2/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Chapter 2-1 (weight: 40)</title>
-      <link>https://zelunwu.github.io/statistics/1/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/statistics/1/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
       <title>Search Shortcode</title>
       <link>https://zelunwu.github.io/sample/search-shortcode/</link>
       <pubDate>Mon, 30 Mar 2020 18:49:06 +0000</pubDate>
@@ -162,51 +135,6 @@ aaa</description>
       <description>aaaaaa
 vvvv
 aaa</description>
-    </item>
-    
-    <item>
-      <title>Chapter 1-1</title>
-      <link>https://zelunwu.github.io/gfd/1/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/gfd/1/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Chapter 1-2</title>
-      <link>https://zelunwu.github.io/gfd/2/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/gfd/2/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Chapter 1-3</title>
-      <link>https://zelunwu.github.io/gfd/3/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/gfd/3/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Chapter 1-4</title>
-      <link>https://zelunwu.github.io/gfd/4/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/gfd/4/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Chapter 2-0 (weight: no set)</title>
-      <link>https://zelunwu.github.io/statistics/5/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/statistics/5/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
     <item>
