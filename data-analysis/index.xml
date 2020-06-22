@@ -13,10 +13,10 @@
     
     <item>
       <title>Data Interpolation 数据插值</title>
-      <link>https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/</link>
+      <link>https://zelunwu.github.io/data-analysis/da_interpolation/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/</guid>
+      <guid>https://zelunwu.github.io/data-analysis/da_interpolation/</guid>
       <description>1. Introduction Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or</description>
     </item>
     

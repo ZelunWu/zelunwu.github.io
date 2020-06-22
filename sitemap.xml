@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://zelunwu.github.io/data-analysis/2020-06-22-da_interpolation/</loc>
+    <loc>https://zelunwu.github.io/data-analysis/da_interpolation/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
@@ -50,6 +50,7 @@
   <url>
     <loc>https://zelunwu.github.io/</loc>
     <lastmod>2020-06-22T15:26:15+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
