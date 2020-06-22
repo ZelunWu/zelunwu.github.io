@@ -108,11 +108,6 @@
   </url>
   
   <url>
-    <loc>https://zelunwu.github.io/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zelunwu.github.io/post/goisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
@@ -170,6 +165,10 @@
   <url>
     <loc>https://zelunwu.github.io/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zelunwu.github.io/about/</loc>
   </url>
   
 </urlset>

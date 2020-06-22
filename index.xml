@@ -160,16 +160,6 @@ aaa</description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://zelunwu.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zelunwu.github.io/about/</guid>
-      <description>zelunwu@stu.xmu.edu.cn zelunwu@udel.edu
-Publications </description>
-    </item>
-    
-    <item>
       <title>(Hu)go Template Primer</title>
       <link>https://zelunwu.github.io/post/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
@@ -191,6 +181,20 @@ More complete instructions are available at Install Hugo
 Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
 Follow the following steps:
  Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://zelunwu.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/about/</guid>
+      <description>Zelun Wu Ph.D. student of Physical Oceanography,
+Xiamen University &amp;amp; University of Delaware
+zelunwu@stu.xmu.edu.cn, zelunwu@udel.edu
+Research Interests Climate Change, Marine Heatwaves
+Educations Xiamen University, Bachelor of Science (2012 – 2016) Xiamen University, Master of Physical Oceanography (2016 – 2018) Dual Degree, Ph.D. student of Physical Oceanography, Xiamen University, University of Delaware (2019 – )
+Publications  Jiamei Huang, Wei Zhuang, Xiao-Hai Yan, Zelun Wu, 2020, Impacts of the upper-ocean salinity variations on the decadal sea level change in the southeast Indian Ocean during the Argo era, https://doi.</description>
     </item>
     
   </channel>
