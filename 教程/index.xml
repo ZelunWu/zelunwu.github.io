@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>教程 on Zelun&#39;s Notebook</title>
+    <link>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/</link>
+    <description>Recent content in 教程 on Zelun&#39;s Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jun 2020 15:26:15 +0000</lastBuildDate>
+    
+	<atom:link href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page</title>
+      <link>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</guid>
+      <description>由于我使用的是Mac，所以这里的教程针对macOS和Linux，Windows不适用（cmd我也不熟），应该也是类似，直接去官网下载Hugo</description>
+    </item>
+    
+  </channel>
+</rss>

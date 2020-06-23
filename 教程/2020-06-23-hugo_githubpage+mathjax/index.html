@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page - Zelun&#39;s Notebook</title>
+<meta name="description" content="A son and a student.">
+<meta name="generator" content="Hugo 0.72.0" />
+<link href="https://zelunwu.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/">
+<link rel="stylesheet" href="https://zelunwu.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://zelunwu.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://zelunwu.github.io/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page" />
+<meta property="og:description" content="由于我使用的是Mac，所以这里的教程针对macOS和Linux，Windows不适用（cmd我也不熟），应该也是类似，直接去官网下载Hugo" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/" />
+<meta property="og:image" content="https://zelunwu.github.io/images/og-image.png"/>
+<meta property="og:site_name" content="Homepage" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+<meta name="twitter:title" content="1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page"/>
+<meta name="twitter:description" content="由于我使用的是Mac，所以这里的教程针对macOS和Linux，Windows不适用（cmd我也不熟），应该也是类似，直接去官网下载Hugo"/>
+<meta itemprop="name" content="1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page">
+<meta itemprop="description" content="由于我使用的是Mac，所以这里的教程针对macOS和Linux，Windows不适用（cmd我也不熟），应该也是类似，直接去官网下载Hugo">
+
+<meta itemprop="wordCount" content="1670">
+<meta itemprop="image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Zelun&#39;s Notebook</h1>
+<a href="https://github.com/zelunwu" class="github"><i class="fab fa-github"></i></a>
+<p class="description">A son and a student.</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://www.yuque.com/zelunwu">语雀</a></li>
+<li><a href="/about/">About Me</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page</h1>
+<p>由于我使用的是Mac，所以这里的教程针对macOS和Linux，Windows不适用（cmd我也不熟），应该也是类似，直接去官网下载Hugo的exe文件安装即可（应该，没试过）。</p>
+<h2 id="1-下载hugo到本地">1. 下载Hugo到本地</h2>
+<p><code>homebrew</code> 是mac上类似debian的 <code>apt</code>和centos/redhat 的 <code>yum</code>的软件管理平台，很多开源软件以及编译环境，<code>apt/yum</code>能完成的，<code>homebrew</code>多数情况下也能完成， 比如<code>netcdf/gcc</code>等。</p>
+<p>首先安装打开<code>homebrew</code>, 已经装好的可以跳过，打开terminal输入：</p>
+<pre><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
+</code></pre><p>安装完成后安装<code>hugo</code>:</p>
+<pre><code>brew install hugo
+</code></pre><h2 id="2-hugo-创建本地博客">2. Hugo 创建本地博客</h2>
+<p>原理是这样：你在content文件夹里面写博客（markdown），Hugo根据自有的文件框架，自动生成一个public文件夹，文件夹里面是多数服务器能识别的html文件。如果需要部署到服务器或者githubpage，将public文件夹同步上就行。</p>
+<p>先<code>cd</code>到你想要放本地博客的文件夹，用hugo创建博客文件夹并初始化：</p>
+<pre><code>hugo new site myblog
+</code></pre><p><code>myblog</code>可以是任意你想要的名字。然后需要下载主题themes，上这里去挑：https://themes.gohugo.io，挑完进主题的github仓库里面，下载到 <code>myblog/themes</code>文件夹，或者用git克隆下来。比如我看上了一个很简约的主题：hugo-theme-techdoc，就是这个博客用的，那么我的命令是：</p>
+<pre><code>cd myblog
+cd themes
+git clone https://github.com/thingsym/hugo-theme-techdoc.git
+cd ..
+</code></pre><p>完成后就可以看看你本地的博客了：</p>
+<pre><code>hugo server -t hugo-theme-techdoc
+</code></pre><p>浏览器输入：http://localhost:1313</p>
+<h2 id="3-写博客">3. 写博客</h2>
+<p><strong>创建主页</strong>：terminal输入</p>
+<pre><code>hugo new content/_index.md
+</code></pre><p>或者直接进 content 文件夹创建 <code>_index.md</code>文件也行。用markdown输入你想要展示的主页内容即可。</p>
+<p><strong>创建 about</strong>： 同样，在content文件夹里面创建about.md</p>
+<p><strong>笔记归类</strong>： 在content里面创建文件夹，然后这个文件夹里面单独创建<code>_index.md</code>文件，用于描述该分类，文件头应有类似描述：</p>
+<pre><code>+++
+title: 教程
+date: 2020-06-22T15:26:15Z
+draft: false
+weight: 11
++++
+</code></pre><p>其中<code>weight</code>表示这个分类在目录的排序，1 就是排在第一个。</p>
+<p><strong>文件图片管理</strong>： hugo的图片文件都放在 <code>mysite/static</code>文件夹，markdown引用一个<code>figure.png</code>的文件，将这个文件拷贝进<code>static</code>文件夹，然后任意markdown文件引用的的时候直接</p>
+<pre><code>![figure](figure.png)
+</code></pre><p>即可。但是这样有个问题，网页端可以显示，但是本地编辑器类似typora不能显示。解决方案是将要写的文件命名为文件夹，写入的markdown文件在文件夹里面命名成<code>_index.md</code>,然后图片放入同一个文件夹就可以按照当前文件夹里面的相对目录直接引用了。</p>
+<p>这里我参考了<a href="https://www.isyin.cn/post/2018-05-03-hugo-%E7%9A%84%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/">文件管理方案</a>，里面写的很详细，我就不再赘述。</p>
+<h2 id="4-利用mathjax加入latex写公式">4. 利用Mathjax加入Latex写公式</h2>
+<p>专业原因经常要写很多公式，当然也可以截图用图片引用，但是还是latex比较方便。</p>
+<p>懒点的做法就是直接下载个支持latex的主题。但是支持latex又是你喜欢的主题有时候这两个条件并不能同时成立。也没关系，可以自己改下主题。</p>
+<p>我的解决方案是参考了<a href="https://note.qidong.name/2018/03/hugo-mathjax/">这里</a></p>
+<p>首先在你喜欢的主题下载好之后，在主题文件夹里面的<code>layouts/partials</code>里面创建一个<code>mathjax.html</code>文件，比如我的目录就是：</p>
+<p><code>myblog/themes/hugo-theme-techdoc/layouts/partials</code></p>
+<p>文件里面写入：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;
+        async
+        src=&quot;https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: &quot;AMS&quot; },
+         extensions: [&quot;AMSmath.js&quot;, &quot;AMSsymbols.js&quot;] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    // Fix &lt;code&gt; tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+&lt;/style&gt;
+</code></pre><p>保存，然后在同样的partial文件夹里面的head.html文件里面加入一行：</p>
+<pre><code>{{- partial &quot;mathjax.html&quot; . -}}
+</code></pre><p>重新运行<code>hugo server</code>就可以预览了。</p>
+<h2 id="5-发布到github-page">5. 发布到github page</h2>
+<p>配置好你的GitHub page，</p>
+<pre><code>hugo --theme=hugo-theme-techdoc --baseUrl=&quot;http://zelunwu.github.io/&quot;
+</code></pre><p>theme和baseUrl替换成你自己的主题和GitHubpage。这步是为了生成public文件夹。然后cd到public，将public 文件及push到你的GitHubpage对应仓库。</p>
+<pre><code>cd public
+git init
+git remote add origin https://github.com/zelunwu/zelunwu.github.io.git
+git add -A
+git commit -m &quot;first commit&quot;
+git push -u origin master
+</code></pre><p>这一步也可以用github desktop手动操作。</p>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/%e6%95%99%e7%a8%8b/2020-06-23-hugo_githubpage&#43;mathjax.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/" title="教程"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - 教程</a>
+<a class="nav nav-next" href="https://zelunwu.github.io/data-analysis/" title="Data Analysis">Next - Data Analysis <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://zelunwu.github.io/">Home</a></li>
+
+<li class=""><a href="https://zelunwu.github.io/data-analysis/">Data Analysis</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://zelunwu.github.io/data-analysis/da_interpolation/">Data Interpolation 数据插值</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/">Paper Reading Notes</a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/lee_et_al-2020-mhw-wnp/">Lee et al. - 2020 - Two modes of East Asian MHW</a>
+  
+</li>
+</ul>
+  
+</li>
+
+
+
+<li class="parent"><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/">教程</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/">1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
