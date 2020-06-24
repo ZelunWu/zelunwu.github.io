@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marine Heatwaves on Zelun&#39;s Notebook</title>
-    <link>https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/</link>
+    <link>https://zelunwu.me/paper-reading-notes/marine-heatwaves/</link>
     <description>Recent content in Marine Heatwaves on Zelun&#39;s Notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Jun 2020 23:06:40 -0400</lastBuildDate>
     
-	<atom:link href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zelunwu.me/paper-reading-notes/marine-heatwaves/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

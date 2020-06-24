@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zelun&#39;s Notebook</title>
-    <link>https://zelunwu.github.io/</link>
+    <link>https://zelunwu.me/</link>
     <description>Recent content on Zelun&#39;s Notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Jun 2020 23:20:01 -0400</lastBuildDate>
     
-	<atom:link href="https://zelunwu.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zelunwu.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Data Interpolation 数据插值</title>
-      <link>https://zelunwu.github.io/data-analysis/da_interpolation/</link>
+      <link>https://zelunwu.me/data-analysis/da_interpolation/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/data-analysis/da_interpolation/</guid>
+      <guid>https://zelunwu.me/data-analysis/da_interpolation/</guid>
       <description>1. Introduction Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or</description>
     </item>
     
     <item>
       <title>1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page</title>
-      <link>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</link>
+      <link>https://zelunwu.me/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</guid>
+      <guid>https://zelunwu.me/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</guid>
       <description>由于我使用的是Mac，所以这里的教程针对macOS和Linux，Windows不适用（cmd我也不熟），应该也是类似，直接去官网下载Hugo</description>
     </item>
     
     <item>
       <title>Build-in Shortcodes</title>
-      <link>https://zelunwu.github.io/sample/build-in-shortcodes/</link>
+      <link>https://zelunwu.me/sample/build-in-shortcodes/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/sample/build-in-shortcodes/</guid>
+      <guid>https://zelunwu.me/sample/build-in-shortcodes/</guid>
       <description>See https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes
 figure   2 People Sitting With View of Yellow Flowers during Daytime   gist  highlight &amp;lt;section id=&amp;#34;main&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h1 id=&amp;#34;title&amp;#34;&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt; {{ range .Data.Pages }} {{ .Render &amp;#34;summary&amp;#34;}} {{ end }} &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; instagram    View this post on Instagram        #Talitha #Getty #yacht in #fjærland #fjærlandsfjorden #sognefjorden #mundal #norway #landscape #panorama #travel #instagoodmyphoto #justgoshoot #peoplescreatives #visualsoflife #photography #photoshoot #photodaily #photogram #instagood #picoftheday #fjærland #photooftheday #pentax #nrksf #sognavis</description>
     </item>
     
     <item>
       <title>Custom Shortcodes</title>
-      <link>https://zelunwu.github.io/sample/custom-shortcodes/</link>
+      <link>https://zelunwu.me/sample/custom-shortcodes/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/sample/custom-shortcodes/</guid>
+      <guid>https://zelunwu.me/sample/custom-shortcodes/</guid>
       <description>Alert panel Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
     <item>
       <title>Table of Contents</title>
-      <link>https://zelunwu.github.io/sample/table-of-contents/</link>
+      <link>https://zelunwu.me/sample/table-of-contents/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/sample/table-of-contents/</guid>
+      <guid>https://zelunwu.me/sample/table-of-contents/</guid>
       <description>Note The TableOfContents field with true in your content’s front matter will render a table of contents.
 TableOfContents: true Setting the built-in .TableOfContents variables can configure what heading levels you want to include in TOC. See the built-in .TableOfContents variables settings
   Section 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</description>
@@ -61,10 +61,10 @@ TableOfContents: true Setting the built-in .TableOfContents variables can config
     
     <item>
       <title>Search Shortcode</title>
-      <link>https://zelunwu.github.io/sample/search-shortcode/</link>
+      <link>https://zelunwu.me/sample/search-shortcode/</link>
       <pubDate>Mon, 30 Mar 2020 18:49:06 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/sample/search-shortcode/</guid>
+      <guid>https://zelunwu.me/sample/search-shortcode/</guid>
       <description> Note Search Shortcode powered by Algolia
 You can create a search page just by adding search shortcode.
   </description>
@@ -72,10 +72,10 @@ You can create a search page just by adding search shortcode.
     
     <item>
       <title>About Me</title>
-      <link>https://zelunwu.github.io/about/</link>
+      <link>https://zelunwu.me/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://zelunwu.github.io/about/</guid>
+      <guid>https://zelunwu.me/about/</guid>
       <description>Zelun Wu Ph.D. student of Physical Oceanography, Xiamen University &amp;amp; University of Delaware zelunwu@stu.xmu.edu.cn, zelunwu@udel.edu
 Research Interests Climate Change, Marine Heatwaves
 Educations Xiamen University, Bachelor of Science (2012 – 2016) Xiamen University, Master of Physical Oceanography (2016 – 2018) Dual Degree, Ph.D. student of Physical Oceanography, Xiamen University, University of Delaware (2019 – ) Publications  Jiamei Huang, Wei Zhuang, Xiao-Hai Yan, Zelun Wu, 2020, Impacts of the upper-ocean salinity variations on the decadal sea level change in the southeast Indian Ocean during the Argo era, https://doi.</description>
