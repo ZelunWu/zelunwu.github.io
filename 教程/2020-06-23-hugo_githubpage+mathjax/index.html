@@ -112,12 +112,12 @@ cd ..
 </code></pre><p>或者直接进 content 文件夹创建 <code>_index.md</code>文件也行。用markdown输入你想要展示的主页内容即可。</p>
 <p><strong>创建 about</strong>： 同样，在content文件夹里面创建about.md</p>
 <p><strong>笔记归类</strong>： 在content里面创建文件夹，然后这个文件夹里面单独创建<code>_index.md</code>文件，用于描述该分类，文件头应有类似描述：</p>
-<pre><code>+++
+<pre><code>---
 title: 教程
 date: 2020-06-22T15:26:15Z
 draft: false
 weight: 11
-+++
+---
 </code></pre><p>其中<code>weight</code>表示这个分类在目录的排序，1 就是排在第一个。</p>
 <p><strong>文件图片管理</strong>： hugo的图片文件都放在 <code>mysite/static</code>文件夹，markdown引用一个<code>figure.png</code>的文件，将这个文件拷贝进<code>static</code>文件夹，然后任意markdown文件引用的的时候直接</p>
 <pre><code>![figure](figure.png)
@@ -200,7 +200,7 @@ git push -u origin master
         placeholder: '说点什么吧...',
         visitor: 'true'
     });
-  </script><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+  </script><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/zelunwu/zelunwu.github.io">Zelun Wu</a>.</p>
 </footer>
 </main><div class="sidebar">
 
@@ -223,6 +223,10 @@ git push -u origin master
 <li class=" has-sub-menu"><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/">Marine Heatwaves<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-25-pan_et_al.-2006-barrier-layer-in-ne-scs/">20-06-25 - Pan et al.-2006 - Barrier Layer in the NE SCS</a>
+  
+</li>
 
 <li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-23-lee_et_al-2020-mhw-wnp/">20-06-23 - Lee et al.-2020-Two modes of East Asian MHW</a>
   
