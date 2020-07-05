@@ -18,7 +18,7 @@
 </style>
 <meta property="og:title" content="01 - How to Install MITgcm dependencis" />
 <meta property="og:description" content="MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
-Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself" />
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source code and compile it by yourself, which may give you more freedom to specify the install rootdir. However, one easier wat I suggest is to use homebrew to install such dependencies but not compile them by yourself." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/" />
 <meta property="og:image" content="https://zelunwu.github.io/images/og-image.png"/>
@@ -29,13 +29,13 @@ Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc
 
 <meta name="twitter:title" content="01 - How to Install MITgcm dependencis"/>
 <meta name="twitter:description" content="MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
-Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself"/>
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source code and compile it by yourself, which may give you more freedom to specify the install rootdir. However, one easier wat I suggest is to use homebrew to install such dependencies but not compile them by yourself."/>
 <meta itemprop="name" content="01 - How to Install MITgcm dependencis">
 <meta itemprop="description" content="MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
-Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself">
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source code and compile it by yourself, which may give you more freedom to specify the install rootdir. However, one easier wat I suggest is to use homebrew to install such dependencies but not compile them by yourself.">
 <meta itemprop="datePublished" content="2020-06-22T15:26:15&#43;00:00" />
 <meta itemprop="dateModified" content="2020-06-22T15:26:15&#43;00:00" />
-<meta itemprop="wordCount" content="261">
+<meta itemprop="wordCount" content="269">
 <meta itemprop="image" content="https://zelunwu.github.io/images/og-image.png"/>
 
 
@@ -96,17 +96,17 @@ code.has-jax {
 <h2 id="install-dependencies-in-macos">Install Dependencies in MacOS</h2>
 <ol>
 <li>
-<p><strong>Install homebrew.</strong> You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself</p>
+<p><strong>Install homebrew.</strong> You can download the clang/gcc source code and compile it by yourself, which may give you more freedom to specify the install rootdir. However, one easier wat I suggest is to use <code>homebrew</code> to install such dependencies but not compile them by yourself.</p>
 <p>Open your terminal, copy this line and execute it:</p>
 <pre><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
 </code></pre></li>
 <li>
-<p>Install gcc. After you install homebrew, it is easy to install other dependencies. Again, open your terminal:</p>
+<p>Install gcc. it is easy to install other dependencies if you already installed homebrew. Again, open your terminal:</p>
 <pre><code>brew install gcc
 </code></pre><p>gcc includes gfortran.</p>
 </li>
 <li>
-<p>Install netcdf. I don’t suggest you to compile the netcdf source code by yourself. Instead, we can use homebrew to install netcdf, which will install other dependencis for netcdf automatically.</p>
+<p>Install netcdf. I don’t suggest you to compile the netcdf source code by yourself, because netcdf library requires other dependencies: zlib, hdf5 etc. Instead, we can use homebrew to install netcdf again, which will install other dependencis for netcdf automatically.</p>
 <pre><code>brew install netcdf
 </code></pre></li>
 <li>

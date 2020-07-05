@@ -18,7 +18,7 @@
       
       <guid>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/</guid>
       <description>MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
-Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself</description>
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source code and compile it by yourself, which may give you more freedom to specify the install rootdir. However, one easier wat I suggest is to use homebrew to install such dependencies but not compile them by yourself.</description>
     </item>
     
     <item>
