@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>01 - How to Install MITgcm dependencis - Zelun&#39;s Notebook</title>
+<meta name="description" content="A son and a student.">
+<meta name="generator" content="Hugo 0.72.0" />
+<link href="https://zelunwu.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/">
+<link rel="stylesheet" href="https://zelunwu.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://zelunwu.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://zelunwu.github.io/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="01 - How to Install MITgcm dependencis" />
+<meta property="og:description" content="MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/" />
+<meta property="og:image" content="https://zelunwu.github.io/images/og-image.png"/>
+<meta property="article:published_time" content="2020-06-22T15:26:15+00:00" />
+<meta property="article:modified_time" content="2020-06-22T15:26:15+00:00" /><meta property="og:site_name" content="Homepage" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+<meta name="twitter:title" content="01 - How to Install MITgcm dependencis"/>
+<meta name="twitter:description" content="MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself"/>
+<meta itemprop="name" content="01 - How to Install MITgcm dependencis">
+<meta itemprop="description" content="MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself">
+<meta itemprop="datePublished" content="2020-06-22T15:26:15&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-22T15:26:15&#43;00:00" />
+<meta itemprop="wordCount" content="261">
+<meta itemprop="image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Zelun&#39;s Notebook</h1>
+<a href="https://github.com/zelunwu" class="github"><i class="fab fa-github"></i></a>
+<p class="description">A son and a student.</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://www.yuque.com/zelunwu">语雀</a></li>
+<li><a href="/about/">About Me</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>01 - How to Install MITgcm dependencis</h1>
+<p>MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.</p>
+<h2 id="install-dependencies-in-macos">Install Dependencies in MacOS</h2>
+<ol>
+<li>
+<p><strong>Install homebrew.</strong> You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself</p>
+<p>Open your terminal, copy this line and execute it:</p>
+<pre><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
+</code></pre></li>
+<li>
+<p>Install gcc. After you install homebrew, it is easy to install other dependencies. Again, open your terminal:</p>
+<pre><code>brew install gcc
+</code></pre><p>gcc includes gfortran.</p>
+</li>
+<li>
+<p>Install netcdf. I don’t suggest you to compile the netcdf source code by yourself. Instead, we can use homebrew to install netcdf, which will install other dependencis for netcdf automatically.</p>
+<pre><code>brew install netcdf
+</code></pre></li>
+<li>
+<p>Install openmpi</p>
+<p>To use mpirun, we should install openmpi</p>
+<pre><code>brew install open-mpi
+</code></pre></li>
+</ol>
+<h2 id="install-dependencies-in-ubuntu-centos-and-redhat">Install Dependencies in Ubuntu, CentOS, and RedHat</h2>
+<p>While you are looking for the wikipage for ROMs, you may find that they suggest you to install zlib, hdf5, netcdf-c, netcdf-fortran, gcc, gfortran/ifort by compiling the source code. However, from my own experience, it is not easy. Therefore, similarly, I suggest you to install such dependencies with apt/yum.</p>
+<p>The name of netcdf library in Ubuntu and CentOS is deference, howevr, we still can use</p>
+<pre><code>sudo apt search libnetcdf
+</code></pre><p>to search for the right name of the package, then:</p>
+<pre><code>sudo apt install libnetcdfc-dev
+</code></pre><p>similarly, in CentOS &amp; RedHat, we can do:</p>
+<pre><code>sudo yum search netcdf
+</code></pre><div class="edit-meta">
+Last updated on 22 Jun 2020
+
+
+<br>
+Published on 22 Jun 2020
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/%e6%95%99%e7%a8%8b/MITgcm/20200702-How%20to%20install%20MITgcm%20dependencis.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/" title="MITgcm"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - MITgcm</a>
+<a class="nav nav-next" href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/" title="1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page">Next - 1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav>
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'sRzeuleKeYFEtrhOLRFWyRLa-gzGzoHsz',
+        appKey: 'F71H5UahOTtIYuOr3GFsFMt3',
+        notify: 'true', 
+        verify: 'false', 
+        avatar:'retro', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/zelunwu/zelunwu.github.io">Zelun Wu</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://zelunwu.github.io/">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/data-analysis/">Data Analysis<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://zelunwu.github.io/data-analysis/da_interpolation/">Data Interpolation 数据插值</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/paper-reading-notes/">Paper Reading Notes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/">Marine Heatwaves<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-25-pan_et_al.-2006-barrier-layer-in-ne-scs/">20-06-25 - Pan et al.-2006 - Barrier Layer in the NE SCS</a>
+  
+</li>
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-23-lee_et_al-2020-mhw-wnp/">20-06-23 - Lee et al.-2020-Two modes of East Asian MHW</a>
+  
+</li>
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-24-yao_et_al-2020-mhw-in-china-marginal-seas/">20-06-24 - Yao_et_al.-2020-MHW in China Marginal Sea</a>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+
+
+<li class="parent has-sub-menu"><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/">教程<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/">1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page</a></li>
+
+<li class="parent has-sub-menu"><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/">MITgcm<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/">01 - How to Install MITgcm dependencis</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MITgcm on Zelun&#39;s Notebook</title>
+    <link>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/</link>
+    <description>Recent content in MITgcm on Zelun&#39;s Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jun 2020 15:26:15 +0000</lastBuildDate>
+    
+	<atom:link href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>01 - How to Install MITgcm dependencis</title>
+      <link>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/</link>
+      <pubDate>Mon, 22 Jun 2020 15:26:15 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/</guid>
+      <description>MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself</description>
+    </item>
+    
+  </channel>
+</rss>

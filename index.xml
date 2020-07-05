@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>01 - How to Install MITgcm dependencis</title>
+      <link>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/</link>
+      <pubDate>Mon, 22 Jun 2020 15:26:15 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/</guid>
+      <description>MITgcm requires at least one complier: c language compiler. The most common complier in Unix based OS is gcc. Other dependencies are netcdf-c, ifort etc.
+Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc source cold to compile by yourself, which may give you more freedom to specify the install rootdir. However, our goal is to run the model, therefore I suggest you to use homebrew to install such dependencies but not install by yourself</description>
+    </item>
+    
+    <item>
       <title>Data Interpolation 数据插值</title>
       <link>https://zelunwu.github.io/data-analysis/da_interpolation/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
