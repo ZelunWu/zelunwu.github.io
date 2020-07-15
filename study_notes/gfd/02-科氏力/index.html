@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>02 - Coriolis Force and Inertial Oscillation - Zelun&#39;s Notebook</title>
+<meta name="description" content="A son and a student.">
+<meta name="generator" content="Hugo 0.72.0" />
+<link href="https://zelunwu.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://zelunwu.github.io/study_notes/gfd/02-%E7%A7%91%E6%B0%8F%E5%8A%9B/">
+<link rel="stylesheet" href="https://zelunwu.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://zelunwu.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://zelunwu.github.io/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="02 - Coriolis Force and Inertial Oscillation" />
+<meta property="og:description" content="科氏力 科氏力 2D 条件下科氏力 所谓的科氏力，是在非惯性系下使得研究对象仍然满足惯性系下牛顿第二定律而增加的一种虚拟力。 两个参考系下，由伽利略变换" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zelunwu.github.io/study_notes/gfd/02-%E7%A7%91%E6%B0%8F%E5%8A%9B/" />
+<meta property="og:image" content="https://zelunwu.github.io/images/og-image.png"/>
+<meta property="og:site_name" content="Homepage" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+<meta name="twitter:title" content="02 - Coriolis Force and Inertial Oscillation"/>
+<meta name="twitter:description" content="科氏力 科氏力 2D 条件下科氏力 所谓的科氏力，是在非惯性系下使得研究对象仍然满足惯性系下牛顿第二定律而增加的一种虚拟力。 两个参考系下，由伽利略变换"/>
+<meta itemprop="name" content="02 - Coriolis Force and Inertial Oscillation">
+<meta itemprop="description" content="科氏力 科氏力 2D 条件下科氏力 所谓的科氏力，是在非惯性系下使得研究对象仍然满足惯性系下牛顿第二定律而增加的一种虚拟力。 两个参考系下，由伽利略变换">
+
+<meta itemprop="wordCount" content="1381">
+<meta itemprop="image" content="https://zelunwu.github.io/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Zelun&#39;s Notebook</h1>
+<a href="https://github.com/zelunwu" class="github"><i class="fab fa-github"></i></a>
+<p class="description">A son and a student.</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://www.yuque.com/zelunwu">语雀</a></li>
+<li><a href="/about/">About Me</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>02 - Coriolis Force and Inertial Oscillation</h1>
+<h1 id="科氏力">科氏力</h1>
+<h2 id="科氏力-1">科氏力</h2>
+<h2 id="2d-条件下科氏力">2D 条件下科氏力</h2>
+<p>所谓的科氏力，是在非惯性系下使得研究对象仍然满足惯性系下牛顿第二定律而增加的一种虚拟力。</p>
+<p>两个参考系下，由伽利略变换可得，在非惯性系下的位移为：
+$$
+r&rsquo; = r+vt
+$$
+旋转坐标系下，$v = \omega \times r'$, 可得：
+$$
+r&rsquo; = r+\omega \times rt
+$$
+同理，相对参考系下的速度为：
+$$
+v&rsquo; = v + \omega \times r
+$$
+加速度：
+$$
+a&rsquo; = a + 2\omega \times v + \omega \times \omega \times r
+$$
+第二项便是科氏力的由来。</p>
+<h2 id="3d-条件下的科氏力">3D 条件下的科氏力</h2>
+<h2 id="静惯性震荡">静惯性震荡</h2>
+<p>Navi-Stokes Function为：
+$$
+\frac{\partial \mathbf{u}}{\partial t} = - \mathbf{u}\nabla \mathbf{u} + P + F
+$$
+上式为欧拉观点下的加速度方程，即等式左边为 $\partial u/\partial t$。 所谓惯性，即物体保持本身运动状态的能力，依照牛顿第一定律，物体在不受外力的情况下能够保持自身运动状态（运动或者静止，静止是一种特殊状态下（速度为0）的运动）。而在地球无时无刻不在自转，我们身为一个跟着地球转的观察者，处于一个非惯性系下无时无刻都会收到科氏力的影响。为了使得牛顿第一定律成立，科氏力作为一个虚拟力必须加上去，才能满足物体在非惯性系下满足惯性坐标系下的牛顿第一定律。因此，在旋转坐标系下，科氏力并不是一种外力，而是类似重力的一种体力。</p>
+<p>因此，所谓惯性震荡，即单单收到科氏力的作用下，水质点来回运动的一种状态。</p>
+<p>而要使得物体仅仅收到科氏力作用，就必须满足以下几个条件：</p>
+<ol>
+<li>海面水平梯度为0，或者极小，可以忽略不计（压强梯度力）</li>
+<li>只研究水平运动（重力）</li>
+<li>无风，水体粘性低</li>
+<li>无摩擦（粘性），深水区</li>
+</ol>
+<p>这样我们才能得到一个方程：
+$$
+\frac{d \mathbf{u}}{dt} = f\mathbf{k}\times \mathbf{u}
+$$
+解这个方程我们就可以得到所谓的惯性震荡。</p>
+<p>而要满足上面四个条件的海域：</p>
+<ol>
+<li>海面水平梯度为0: 长时间大尺度条件下，水平梯度决定了地转流，因此这个条件决定了不能在主要流系的位置（西边界，东边界，赤道等）</li>
+<li>只研究水平运动：没有限制海域</li>
+<li>无风，水体粘性低。这个条件决定了不能在风带区，而满足这个条件的海域明显就是副热带海盆中心地带。</li>
+<li>无摩擦，深水区。即不能在浅水区。</li>
+</ol>
+<p>综上，比较合适的观察静惯性震荡的海域是所谓的“热带沙漠”区，即副热带幅聚区：风速低，深海，水质高，科氏力较强。</p>
+<h2 id="数值模拟部分">数值模拟部分</h2>
+<p>这个章节的数值模拟其实主要讨论了差值方法如何稳定这个这个问题。本质上一个模型用数值方法来模拟解析解，经过n步之后的数值解在网格无限精细的前提下如果能接近解析解，那么这个数值解就是收敛的。但是证明收敛很难， 根据Lax–Richtmyer equivalence theorem (Lax &amp; Richtmyer, 1956:</p>
+<blockquote>
+<p>A consistent ﬁnite-difference scheme for a linear partial differential equation for which the initial value problem is well posed is convergent if and only if it is stable.</p>
+</blockquote>
+<p>收敛的前提是数值解稳定，即数值解不回无限增大，所以问题就变成了寻找一个钟稳定的差值方法。</p>
+<p>但是这个解决办法的前提是本身解析解就是稳定的，即解析解不会无限增大。这个在自然条件下经常能够满足，因为有摩擦力的存在。</p>
+<p>对于差值方法，可以按照阶数分类：</p>
+<ol>
+<li>
+<p><strong>一阶差值：</strong></p>
+<ul>
+<li>前差，显性欧拉方法，不收敛：The explicit Euler method ( forward scheme):
+$$
+u^n = u^{n-1}+\Delta tQ^{n-1}
+$$</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>后差（backward）:The implicit Euler method (backward scheme):
+$$
+u_{n+1} = u_n+\Delta tQ_{n+1}
+$$</li>
+</ul>
+<p>这两个方法里面，前差是不稳定的，后差是稳定的。</p>
+<ol start="2">
+<li>
+<p><strong>二阶差值</strong></p>
+<ul>
+<li>
+<p><strong>The semi-implicit Euler scheme (trapezoidal scheme),</strong> 其实就是1/2的前差和后差之和：
+$$
+\tilde{u}^{n+1}=\tilde{u}^{n}+\frac{\Delta t}{2}\left(Q^{n}+Q^{n+1}\right)
+$$</p>
+</li>
+<li>
+<p><strong>leapfrog,</strong> 跳跃差值, 跳过了n点，算n-1和n+1 点：
+$$
+\tilde{u}^{n+1}=\tilde{u}^{n-1}+2 \Delta t Q^{n}
+$$</p>
+</li>
+<li>
+<p><strong>Adams–Bashforth method:</strong> 差值。 这个其实是个Family, 根据Aronnax的函数列表，这个差值方法其实还可以有三阶，四阶，五阶等。</p>
+<ul>
+<li>
+<p>二阶
+$$
+\tilde{u}^{n+1}=\tilde{u}^{n}+\Delta t \frac{\left(3 Q^{n}-Q^{n-1}\right)}{2}
+$$</p>
+</li>
+<li>
+<p>二阶以上。注意到二阶的情况是用了n+1,n, 和n-1的点，三阶应该用了四个点，三阶以上则用了更多点。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Study_Notes/GFD/02-%e7%a7%91%e6%b0%8f%e5%8a%9b.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://zelunwu.github.io/study_notes/gfd/" title="GFD (Cushman)"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - GFD (Cushman)</a>
+<a class="nav nav-next" href="https://zelunwu.github.io/study_notes/gfd/03-equations-of-fluid-motion/" title="03 - Equations of Fluid Motions">Next - 03 - Equations of Fluid Motions <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav>
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'sRzeuleKeYFEtrhOLRFWyRLa-gzGzoHsz',
+        appKey: 'F71H5UahOTtIYuOr3GFsFMt3',
+        notify: 'true', 
+        verify: 'false', 
+        avatar:'retro', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/zelunwu/zelunwu.github.io">Zelun Wu</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://zelunwu.github.io/">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/data-analysis/">Data Analysis<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://zelunwu.github.io/data-analysis/da_interpolation/">Data Interpolation 数据插值</a></li>
+<li class=""><a href="https://zelunwu.github.io/data-analysis/2020-07-06-eof/">2020-07-06-EOF</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/paper-reading-notes/">Paper Reading Notes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/">Marine Heatwaves<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-25-pan_et_al.-2006-barrier-layer-in-ne-scs/">20-06-25 - Pan et al.-2006 - Barrier Layer in the NE SCS</a>
+  
+</li>
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-23-lee_et_al-2020-mhw-wnp/">20-06-23 - Lee et al.-2020-Two modes of East Asian MHW</a>
+  
+</li>
+
+<li class=""><a href="https://zelunwu.github.io/paper-reading-notes/marine-heatwaves/20-06-24-yao_et_al-2020-mhw-in-china-marginal-seas/">20-06-24 - Yao_et_al.-2020-MHW in China Marginal Sea</a>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/">教程<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/">1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page</a></li>
+
+<li class=" has-sub-menu"><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/">MITgcm<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/mitgcm/20200702-how-to-install-mitgcm-dependencis/">01 - How to Install MITgcm dependencis</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://zelunwu.github.io/study_notes/">Study Notes<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://zelunwu.github.io/study_notes/gfd/">GFD (Cushman)<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://zelunwu.github.io/study_notes/gfd/02-%E7%A7%91%E6%B0%8F%E5%8A%9B/">02 - Coriolis Force and Inertial Oscillation</a></li>
+<li class=""><a href="https://zelunwu.github.io/study_notes/gfd/03-equations-of-fluid-motion/">03 - Equations of Fluid Motions</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

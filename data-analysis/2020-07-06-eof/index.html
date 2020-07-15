@@ -3,11 +3,11 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Search Shortcode - Zelun&#39;s Notebook</title>
+<title>2020-07-06-EOF - Zelun&#39;s Notebook</title>
 <meta name="description" content="A son and a student.">
 <meta name="generator" content="Hugo 0.72.0" />
 <link href="https://zelunwu.github.io//index.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="https://zelunwu.github.io/sample/search-shortcode/">
+<link rel="canonical" href="https://zelunwu.github.io/data-analysis/2020-07-06-eof/">
 <link rel="stylesheet" href="https://zelunwu.github.io/css/theme.min.css">
 <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="https://zelunwu.github.io/css/chroma.min.css">
@@ -16,29 +16,21 @@
 <script src="https://zelunwu.github.io/js/bundle.js"></script><style>
 :root {--custom-font-color: black;--custom-background-color: white;}
 </style>
-<meta property="og:title" content="Search Shortcode" />
-<meta property="og:description" content=" Note Search Shortcode powered by Algolia
-You can create a search page just by adding search shortcode.
-  " />
+<meta property="og:title" content="2020-07-06-EOF" />
+<meta property="og:description" content="EOF and SVD 假设我们原始数据距平为$X_{m\times n}$, 有m个空间点和n个时间点，数学意义上，即 $X$ 的数据被记录在一共 $m$ 个维度上，在第 $i$ 维度的第 $j$" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zelunwu.github.io/sample/search-shortcode/" />
+<meta property="og:url" content="https://zelunwu.github.io/data-analysis/2020-07-06-eof/" />
 <meta property="og:image" content="https://zelunwu.github.io/images/og-image.png"/>
-<meta property="article:published_time" content="2020-03-30T18:49:06+00:00" />
-<meta property="article:modified_time" content="2020-03-30T18:49:06+00:00" /><meta property="og:site_name" content="Homepage" />
+<meta property="og:site_name" content="Homepage" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zelunwu.github.io/images/og-image.png"/>
 
-<meta name="twitter:title" content="Search Shortcode"/>
-<meta name="twitter:description" content=" Note Search Shortcode powered by Algolia
-You can create a search page just by adding search shortcode.
-  "/>
-<meta itemprop="name" content="Search Shortcode">
-<meta itemprop="description" content=" Note Search Shortcode powered by Algolia
-You can create a search page just by adding search shortcode.
-  ">
-<meta itemprop="datePublished" content="2020-03-30T18:49:06&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-30T18:49:06&#43;00:00" />
-<meta itemprop="wordCount" content="17">
+<meta name="twitter:title" content="2020-07-06-EOF"/>
+<meta name="twitter:description" content="EOF and SVD 假设我们原始数据距平为$X_{m\times n}$, 有m个空间点和n个时间点，数学意义上，即 $X$ 的数据被记录在一共 $m$ 个维度上，在第 $i$ 维度的第 $j$"/>
+<meta itemprop="name" content="2020-07-06-EOF">
+<meta itemprop="description" content="EOF and SVD 假设我们原始数据距平为$X_{m\times n}$, 有m个空间点和n个时间点，数学意义上，即 $X$ 的数据被记录在一共 $m$ 个维度上，在第 $i$ 维度的第 $j$">
+
+<meta itemprop="wordCount" content="476">
 <meta itemprop="image" content="https://zelunwu.github.io/images/og-image.png"/>
 
 
@@ -94,24 +86,99 @@ code.has-jax {
 </nav>
 </div>
 <div class="content-container">
-<main><h1>Search Shortcode</h1>
-<div class="panel panel-primary"><div class="panel-header">
-<h3><i class="far fa-lightbulb"></i> Note</h3>
-</div><div class="panel-body">
-<p>Search Shortcode powered by <a href="https://www.algolia.com/">Algolia</a></p>
-<p>You can create a search page just by adding <code>search</code> shortcode.</p>
-</div>
-</div>
-
-
+<main><h1>2020-07-06-EOF</h1>
+<h2 id="eof-and-svd">EOF and SVD</h2>
+<p>假设我们原始数据距平为$X_{m\times n}$, 有m个空间点和n个时间点，数学意义上，即 $X$ 的数据被记录在一共 $m$ 个维度上，在第 $i$ 维度的第 $j$ 时刻，数据为$x_{i,j}$. 而EOF的本质就是将 $X$ 重新分配到新的维度上：
+$$
+X_{m\times n}=EOF_{m\times m}\cdot PC_{m\times n}=
+\left[\begin{matrix}
+eof_1, eof_2,&hellip;,eof_m
+\end{matrix}\right]_{m\times m} \cdot
+\left[\begin{matrix}
+pc_1 \ pc_2 \ &hellip; \ pc_m
+\end{matrix}\right]_{m\times n}
+$$
+where EOF is the eigenvector matrixs, which is an normal orthogonal matrix, i.e.: $EOF^T=EOF^{-1}$ ,and PC is the projection of X in the new coordinates EOF:
+$$
+PC =EOF^{-1}\cdot X= EOF^T\cdot X
+$$</p>
+<h3 id="eigenvalues-method">Eigenvalues method</h3>
+<p>To calculate the eigenvmatrix $EOF$, first we should calculate the Covariance matrix:
+$$
+C_{m\times m}=\frac{1}{n}X\cdot X^T
+$$
+then the eigenvector matrix EOF or V satisfies:
+$$
+V \cdot C =\Sigma \cdot C \tag{1}
+$$
+where $\Sigma$ is the eigenvalues matrix:
+$$
+\Sigma =\left[\begin{array}{cccc}
+\lambda_{1} &amp; 0 &amp; \dots &amp; 0 \<br>
+0 &amp; \lambda_{2} &amp; \dots &amp; 0 \<br>
+\dots &amp; \dots &amp; \dots &amp; \dots \<br>
+0 &amp; 0 &amp; \dots &amp; \lambda_{m}
+\end{array}\right]
+$$
+To solve (1), move the right hand side of the equation to lhs, get:
+$$
+(V-\Sigma)\cdot C = 0 \tag{2}
+$$
+now the equation becomes an first order homogeneous equation. To get a nontrivial solution for (2), the determinant of $(V-\Sigma)$ should be equals 0:
+$$
+\left| V-\Sigma\right |=0
+$$
+from which we can calculate the V and $\Sigma$</p>
+<h3 id="svd-method">SVD method:</h3>
+<p>$$
+X_{m,n}=svd(X)=U_{m,m}\Sigma_{m,n}V_{n,n}
+$$</p>
+<p>where $U_{m,m} = EOF_{m,m}$, $PC_{m,n}=\Sigma_{m,n}V_{n,n}$.</p>
+<h2 id="relationship-of-difference-eigenvectors-eof_i">Relationship of difference eigenvectors (eof_i)</h2>
+<p>To find out the relationship of difference $eof_i$, we can calculate:
+$$
+\begin{align}
+EOF^T\cdot EOF &amp;=\left[\begin{matrix}
+eof_1\eof_2\&hellip;\eof_m
+\end{matrix}\right]<em>{m,1} \cdot \left[\begin{matrix}
+eof_1, eof_2,&hellip;,eof_m
+\end{matrix}\right]</em>{1\times m} \<br>
+&amp;= \left[\begin{matrix}
+eof_1\cdot eof_1, \space eof_1\cdot eof_2,&hellip;,eof_1\cdot eof_m\<br>
+eof_2\cdot eof_1, \space eof_2\cdot eof_2,&hellip;,eof_2\cdot eof_m\<br>
+&hellip;\<br>
+eof_m\cdot eof_1, \space eof_m\cdot eof_2,&hellip;,eof_m\cdot eof_m
+\end{matrix}\right]_{m\times m} \<br>
+&amp;= \left[ \begin{matrix}1\quad0\quad0&hellip;\quad0 \<br>
+0\quad1\quad0&hellip;\quad0\<br>
+0\quad0\quad1&hellip;\quad0\<br>
+0\quad0\quad0&hellip;\quad1\end{matrix}\right]
+\end{align}
+$$
+or in other form, using the normal orthogonal matrix U:
+$$
+EOF^T\cdot EOF = U^T\cdot U=I
+$$
+that is, eigenvectors are independent from each others.</p>
+<h2 id="relationship-of-difference-pcs">Relationship of difference PCs</h2>
+<p>$PC=[pc_1,pc_2,…,pc_m]^T=\Sigma V$, Similarly,
+$$
+\begin{align}
+PC\cdot PC^T &amp;= \left[\begin{matrix}
+pc_1\cdot pc_1, \space pc_1\cdot pc_2,&hellip;,pc_1\cdot pc_m\<br>
+pc_2\cdot pc_1, \space pc_2\cdot pc_2,&hellip;,pc_2\cdot pc_m\<br>
+&hellip;\<br>
+pc_m\cdot pc_1, \space pc_m\cdot pc_2,&hellip;,pc_m\cdot pc_m
+\end{matrix}\right]_{m\times m} \<br>
+&amp;=\Sigma V\cdot(\Sigma V)^T \<br>
+&amp;= \Sigma V V^T\Sigma^T \<br>
+&amp;=\Sigma^2
+\end{align}
+$$</p>
 <div class="edit-meta">
-Last updated on 30 Mar 2020
 
-
-<br>
-Published on 30 Mar 2020
-<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/sample/search-shortcode.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://zelunwu.github.io/sample/table-of-contents/" title="Table of Contents"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Table of Contents</a>
-<a class="nav nav-next" href="https://zelunwu.github.io/%E6%95%99%E7%A8%8B/" title="教程">Next - 教程 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Data%20Analysis/2020-07-06-EOF.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://zelunwu.github.io/data-analysis/da_interpolation/" title="Data Interpolation 数据插值"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Data Interpolation 数据插值</a>
+<a class="nav nav-next" href="https://zelunwu.github.io/paper-reading-notes/" title="Paper Reading Notes">Next - Paper Reading Notes <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav>
   
   <div id="vcomments"></div>
@@ -137,11 +204,11 @@ Published on 30 Mar 2020
 <ul>
 <li class=""><a href="https://zelunwu.github.io/">Home</a></li>
 
-<li class=" has-sub-menu"><a href="https://zelunwu.github.io/data-analysis/">Data Analysis<span class="mark closed">+</span></a>
+<li class="parent has-sub-menu"><a href="https://zelunwu.github.io/data-analysis/">Data Analysis<span class="mark opened">-</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://zelunwu.github.io/data-analysis/da_interpolation/">Data Interpolation 数据插值</a></li>
-<li class=""><a href="https://zelunwu.github.io/data-analysis/2020-07-06-eof/">2020-07-06-EOF</a></li>
+<li class="active"><a href="https://zelunwu.github.io/data-analysis/2020-07-06-eof/">2020-07-06-EOF</a></li>
 </ul>
   
 </li>

@@ -31,12 +31,39 @@ Install Dependencies in MacOS   Install homebrew. You can download the clang/gcc
     </item>
     
     <item>
+      <title>02 - Coriolis Force and Inertial Oscillation</title>
+      <link>https://zelunwu.github.io/study_notes/gfd/02-%E7%A7%91%E6%B0%8F%E5%8A%9B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/study_notes/gfd/02-%E7%A7%91%E6%B0%8F%E5%8A%9B/</guid>
+      <description>科氏力 科氏力 2D 条件下科氏力 所谓的科氏力，是在非惯性系下使得研究对象仍然满足惯性系下牛顿第二定律而增加的一种虚拟力。 两个参考系下，由伽利略变换</description>
+    </item>
+    
+    <item>
       <title>1. Hugo搭建博客&#43;引入mathjax&#43;部署GitHub page</title>
       <link>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zelunwu.github.io/%E6%95%99%E7%A8%8B/2020-06-23-hugo_githubpage&#43;mathjax/</guid>
       <description>由于我使用的是Mac，所以这里的教程针对macOS和Linux，Windows不适用（cmd我也不熟），应该也是类似，直接去官网下载Hugo</description>
+    </item>
+    
+    <item>
+      <title>2020-07-06-EOF</title>
+      <link>https://zelunwu.github.io/data-analysis/2020-07-06-eof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/data-analysis/2020-07-06-eof/</guid>
+      <description>EOF and SVD 假设我们原始数据距平为$X_{m\times n}$, 有m个空间点和n个时间点，数学意义上，即 $X$ 的数据被记录在一共 $m$ 个维度上，在第 $i$ 维度的第 $j$</description>
+    </item>
+    
+    <item>
+      <title>03 - Equations of Fluid Motions</title>
+      <link>https://zelunwu.github.io/study_notes/gfd/03-equations-of-fluid-motion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/study_notes/gfd/03-equations-of-fluid-motion/</guid>
+      <description>几大海洋方程 质量守恒方程 $$ \frac{\partial \rho}{\partial t}+\frac{\partial}{\partial x}(\rho u)+\frac{\partial}{\partial y}(\rho v)+\frac{\partial}{\partial z}(\rho w)=0 $$ 栋梁守恒方程 $$ \begin{aligned} &amp;amp;x: \rho\left(\frac{\mathrm{d} u}{\mathrm{d} t}+f_{*} w-f v\right)=-\frac{\partial p}{\partial x}+\frac{\partial \tau^{x x}}{\partial x}+\frac{\partial \tau^{x y}}{\partial y}+\frac{\partial \tau^{x z}}{\partial z}\ &amp;amp;y: \quad \rho\left(\frac{\mathrm{d} v}{\mathrm{d} t}+f u\right)=-\frac{\partial p}{\partial y}+\frac{\partial \tau^{x y}}{\partial x}+\frac{\partial \tau^{y y}}{\partial y}+\frac{\partial \tau^{y z}}{\partial z}\ &amp;amp;z: \rho\left(\frac{\mathrm{d} w}{\mathrm{d} t}-f_{*} u\right)=-\frac{\partial</description>
     </item>
     
     <item>

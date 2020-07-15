@@ -20,5 +20,14 @@
       <description>1. Introduction Supposed we need one property data to study on problem, and we measure that property in the field, recorded as p(x), where x is the coordinates of that property, which can be spatial coordinates or temporal coordinates. In the realy world, we can’t make sure that those p are regularlly measured. However, many data analysis methods needs the data to be regularly recorded, or</description>
     </item>
     
+    <item>
+      <title>2020-07-06-EOF</title>
+      <link>https://zelunwu.github.io/data-analysis/2020-07-06-eof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zelunwu.github.io/data-analysis/2020-07-06-eof/</guid>
+      <description>EOF and SVD 假设我们原始数据距平为$X_{m\times n}$, 有m个空间点和n个时间点，数学意义上，即 $X$ 的数据被记录在一共 $m$ 个维度上，在第 $i$ 维度的第 $j$</description>
+    </item>
+    
   </channel>
 </rss>
